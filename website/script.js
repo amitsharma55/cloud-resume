@@ -1,6 +1,6 @@
 // Visitor counter - calls API Gateway endpoint
 // Replace the API_ENDPOINT with your actual API Gateway URL after deploying
-const API_ENDPOINT = "https://YOUR_API_GATEWAY_URL/prod/visitor-count";
+const API_ENDPOINT = "https://l3hijor26j.execute-api.us-east-1.amazonaws.com/prod/visitor-count";
 
 async function updateVisitorCount() {
     try {

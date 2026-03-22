@@ -5,10 +5,10 @@
 resource "aws_dynamodb_table" "visitor_counter" {
   name         = var.dynamodb_table_name
   billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "id"
+  hash_key     = "ID"
 
   attribute {
-    name = "id"
+    name = "ID"
     type = "S"
   }
 }
@@ -20,7 +20,7 @@ resource "aws_dynamodb_table_item" "visitor_count_seed" {
 
   item = <<ITEM
 {
-  "id": {"S": "visitor_count"},
+  "ID": {"S": "visitor_count"},
   "visit_count": {"N": "0"}
 }
 ITEM
