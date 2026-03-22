@@ -1,0 +1,9 @@
+# --- Example values: update with your actual AWS resource details ---
+
+aws_region          = "us-east-1"
+domain_name         = "resume.yourdomain.com"
+hosted_zone_id      = "ZXXXXXXXXXXXXXXXXX"
+s3_bucket_name      = "your-resume-bucket-name"
+dynamodb_table_name = "visitor-counter"
+lambda_function_name = "visitor-counter-function"
+api_gateway_name    = "visitor-counter-api"
