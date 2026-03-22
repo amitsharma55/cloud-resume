@@ -1,6 +1,6 @@
 # Cloud Resume — AWS + Terraform
 
-Serverless resume website hosted on AWS, fully managed with Terraform.
+My serverless cloud resume (https://amitkumarresume.com/) website hosted on AWS, fully managed with Terraform.
 
 ## Architecture
 
