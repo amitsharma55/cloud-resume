@@ -1,9 +1,0 @@
-# --- Example values: update with your actual AWS resource details ---
-
-aws_region          = "us-east-1"
-domain_name         = "amitkumarresume.com"
-hosted_zone_id      = "Z03352913CFP6HANA99LJ"
-s3_bucket_name      = "amitkumarresume.com"
-dynamodb_table_name = "c-r-c"
-lambda_function_name = "lambda-dynamodb"
-api_gateway_name    = "DemoVisitorCountApiV2.0"
