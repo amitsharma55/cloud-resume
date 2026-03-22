@@ -26,7 +26,6 @@ cloud-resume/
 ├── terraform/              # Infrastructure as Code
 │   ├── main.tf             # Provider & backend config
 │   ├── variables.tf        # Input variables
-│   ├── terraform.tfvars.example
 │   ├── s3_cloudfront.tf    # S3 bucket + CloudFront CDN
 │   ├── dynamodb_lambda.tf  # DynamoDB + Lambda + IAM
 │   ├── api_gateway.tf      # API Gateway REST API
