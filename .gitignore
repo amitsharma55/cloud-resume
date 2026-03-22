@@ -9,6 +9,9 @@ terraform/*.tfplan
 # Lambda zip
 lambda/*.zip
 
+# Resume source
+*.docx
+
 # OS
 .DS_Store
 Thumbs.db
