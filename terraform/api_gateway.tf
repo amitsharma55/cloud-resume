@@ -116,6 +116,19 @@ resource "aws_api_gateway_stage" "prod" {
   stage_name    = "prod"
 }
 
+# ─── Throttling ──────────────────────────────
+
+resource "aws_api_gateway_method_settings" "prod_throttle" {
+  rest_api_id = aws_api_gateway_rest_api.visitor_api.id
+  stage_name  = aws_api_gateway_stage.prod.stage_name
+  method_path = "*/*"
+
+  settings {
+    throttling_burst_limit = 10
+    throttling_rate_limit  = 5
+  }
+}
+
 # ─── Lambda permission for API Gateway ───────
 
 resource "aws_lambda_permission" "api_gateway" {
