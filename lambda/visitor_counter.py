@@ -1,28 +1,34 @@
 import json
 import boto3
-from decimal import Decimal
 
-dynamodb = boto3.resource("dynamodb")
-table = dynamodb.Table("visitor-counter")
-
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('c-r-c')
 
 def lambda_handler(event, context):
-    response = table.update_item(
-        Key={"id": "visitor_count"},
-        UpdateExpression="SET visit_count = if_not_exists(visit_count, :start) + :inc",
-        ExpressionAttributeValues={":inc": Decimal("1"), ":start": Decimal("0")},
-        ReturnValues="UPDATED_NEW",
+    
+    response = table.get_item(
+        Key = {
+            'ID':'visits'
+        }
+    )
+    #print(response)
+    visit_count = response['Item']['counter'] 
+    visit_count = str(int(visit_count) + 1)
+    
+    response = table.put_item(
+        Item = {
+            'ID':'visits',
+            'counter': visit_count
+        }
     )
 
-    visitor_count = int(response["Attributes"]["visit_count"])
-
     return {
-        "statusCode": 200,
-        "headers": {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "POST, OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type",
+        'statusCode': 200,
+        'headers': {
+            'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET,OPTIONS,POST'
         },
-        "body": json.dumps({"visitor_count": visitor_count}),
+        #'body': visit_count
+        'body': json.dumps({'visit_count': visit_count})
     }

@@ -62,7 +62,8 @@ resource "aws_iam_role_policy" "lambda_dynamodb" {
         Effect = "Allow"
         Action = [
           "dynamodb:UpdateItem",
-          "dynamodb:GetItem"
+          "dynamodb:GetItem",
+          "dynamodb:PutItem"
         ]
         Resource = aws_dynamodb_table.visitor_counter.arn
       }
@@ -88,7 +89,7 @@ data "archive_file" "lambda_zip" {
 resource "aws_lambda_function" "visitor_counter" {
   filename         = data.archive_file.lambda_zip.output_path
   function_name    = var.lambda_function_name
-  role             = aws_iam_role.lambda_role.arn
+  role             = "arn:aws:iam::341813136741:role/service-role/lambda-dynamodb-role-or0tv4e2"
   handler          = "visitor_counter.lambda_handler"
   runtime          = "python3.12"
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256

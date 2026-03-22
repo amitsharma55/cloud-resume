@@ -11,7 +11,7 @@ async function updateVisitorCount() {
             },
         });
         const data = await response.json();
-        document.getElementById("visitor-count").textContent = data.visitor_count;
+        document.getElementById("visitor-count").textContent = data.visit_count;
     } catch (error) {
         console.error("Error fetching visitor count:", error);
         document.getElementById("visitor-count").textContent = "N/A";
