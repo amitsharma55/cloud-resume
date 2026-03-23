@@ -118,6 +118,10 @@ h3 {
     font-weight: 600;
 }
 
+.summary p {
+    margin-bottom: 16px;
+}
+
 .certifications ul {
     list-style: none;
     padding: 0;
